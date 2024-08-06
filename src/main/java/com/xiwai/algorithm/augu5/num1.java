@@ -50,6 +50,7 @@ public class num1 {
 class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer,Integer> map=new HashMap<>();
+//        map.getOrDefault()
         for(int i=0;i<nums.length;i++){
             if(map.containsKey(target-nums[i])){
                 int[] res=new int[2];
