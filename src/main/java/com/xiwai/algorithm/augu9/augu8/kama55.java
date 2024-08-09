@@ -1,4 +1,4 @@
-package com.xiwai.algorithm.augu9;
+package com.xiwai.algorithm.augu9.augu8;
 
 //
 //字符串的右旋转操作是把字符串尾部的若干个字符转移到字符串的前面。

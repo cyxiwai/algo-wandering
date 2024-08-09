@@ -1,4 +1,4 @@
-package com.xiwai.algorithm.augu9;
+package com.xiwai.algorithm.augu9.augu8;
 
 import java.util.Arrays;
 
