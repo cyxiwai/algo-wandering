@@ -3,7 +3,37 @@ package com.xiwai.algorithm.augu15;
 import java.util.HashMap;
 
 public class num106 {
+
+    public static void main(String[] args) {
+        Solution106 solution = new Solution106();
+
+        // 示例用例
+        // 构建的二叉树：
+        //       3
+        //      / \
+        //     9   20
+        //        /  \
+        //       15   7
+        int[] inorder = {8, 4, 2, 9, 5, 1, 6, 3, 10, 7, 11};
+        int[] postorder = {8, 4, 9, 5, 2, 6, 10, 11, 7, 3, 1};
+
+        TreeNode root = solution.buildTree(inorder, postorder);
+
+        // 打印重建的二叉树（前序遍历）
+        printPreorder(root);
+    }
+
+    // 辅助函数：前序遍历打印二叉树
+    public static void printPreorder(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.val + " ");
+        printPreorder(node.left);
+        printPreorder(node.right);
+    }
 }
+
 
 //解法二：
 
@@ -21,7 +51,6 @@ class Solution106 {
 
     public TreeNode DiGui106_2(int[] inorder, int inStart, int inEnd,
                                int[] postorder, int postStart, int postEnd, HashMap<Integer, Integer> map) {
-
         if (inStart > inEnd || postStart > postEnd) {
             return null;
         }
