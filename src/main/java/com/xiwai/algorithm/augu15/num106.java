@@ -49,17 +49,73 @@ class Solution106 {
 
     }
 
-    public TreeNode DiGui106_2(int[] inorder, int inStart, int inEnd,
-                               int[] postorder, int postStart, int postEnd, HashMap<Integer, Integer> map) {
+    public TreeNode DiGui106_2(int[] inorder, int inStart, int inEnd, int[] postorder, int postStart, int postEnd, HashMap<Integer, Integer> map) {
         if (inStart > inEnd || postStart > postEnd) {
             return null;
         }
         int value = postorder[postEnd];
         TreeNode root = new TreeNode(value);
         int index = map.get(value);
+//        int rightTreeSize = inEnd - index;
+//        假设一个数组总长为10，则end为9，start为0，若中间第四个为index（3），
+//        总长 = end - start + 1，右长（不包含本）=end - index，左长 = 总长 - 右长 - 1
+//        首先，左闭右闭区间内的元素个数 = 右区间点 - 左区间点 + 1
+//        则index左（不包含自己）共有（index - 1 - start + 1）=3 - 1 - 0 + 1 个元素
+//                区间点为start = 0 和index - 1 = 2
+//        index右共有end - index9 - 3 个元素
+//        若左闭右闭切不计index本身，则左区间为0，1，2，即start，index - 1
+//        右区间为456789，即index + 1，end
+//        同样的index，前序左区间要去掉根节点，而左右区间大小与中序一致，
+//        即大小要满足index - instart和inend - index
+//        左子树：
+//        而前序左区间是每一次迭代往后走一个，左区间大小需要一致，则有
+//        左区间点prestart + 1，右区间点 = 区间大小 + 左区间点 - 1
+//        则有右 = index - instart + prestart，
+//        即prestart + 左子树大小
+//        又因为左子树 = 总和 - 右子树，即preend - prestart -（inend - index）
+//        故右 = preend - 右子树大小
+//        右子树：
+//        同理可得右子树推导关系，右子树右区间点为preend，右区间大小为inend - index
+//        则右子树左区间点有关系：inend - index = preend - 左 + 1
+//        则左区间点 = preend - 右子树 + 1
+//        又有preend - prestart除index外元素个数总和，因此右子树 = 总和 - 左子树
+//        即preend -（preend - prestart - （index - instart））+1 =
+//                prestart + index - instart + 1
+//        又即prestart + 左子树大小 + 1
+//
+//
+//        由以上基础，继续推导后序区间点问题
+//        后序不影响中序左右子树的大小划分，故依旧有左子树 = index - inStart
+//        右子树 = inend - instart
+//        后序左子树左区间点为poststart，左子树大小为index - instart，
+//        又有右 - 左 + 1 = size
+//        故右区间点 = poststart + 左子树 - 1
+//        又因为左子树 + 右子树 = preend - poststart
+//        故左子树 = preend - poststart - 右子树
+//        则有右区间点 = preend - 1 - 右子树
+//        右子树：右区间点为preend - 1，右子树大小为inend - instart
+//        又有右 - 左 + 1 = size
+//        则有preend - 1 - 左 + 1 = 右子树，即左 = preend - 右子树
+//        又有preend - poststart = 左子树 + 右子树
+//        则 = preend - preend + poststart + 左子树 = poststart + 左子树
+//
+//
+//        综上所述，本题的区间范围一共可以划分四个，依次是
+//        前序中序：
+//        1. 前序左：prestart + 1，prestart + 左子树
+//        prestart + 1，preend - 右子树
+//        2. 前序右：preend - 右子树 + 1，preend
+//        prestart + 左子树 + 1，preend
+//        后序中序：
+//        1. 后序左：poststart，poststart + 左子树 - 1
+//        poststart，postend - 右子树 - 1
+//        2. 后序右：poststart + 左子树，postend - 1
+//        postend-右子树，postend - 1
+
         int leftTreeSize = index - inStart;
-        root.left = DiGui106_2(inorder, inStart, index - 1, postorder, postStart, postStart + leftTreeSize - 1, map);
-        root.right = DiGui106_2(inorder, index + 1, inEnd, postorder, postStart + leftTreeSize, postEnd - 1, map);
+        int rightTreeSize = inEnd-index;
+        root.left = DiGui106_2(inorder, inStart, index - 1, postorder, postStart, postEnd-rightTreeSize-1, map);
+        root.right = DiGui106_2(inorder, index + 1, inEnd, postorder, postEnd-rightTreeSize, postEnd - 1, map);
         return root;
     }
 }

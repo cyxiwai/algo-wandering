@@ -13,10 +13,10 @@ public class num105 {
         //     9   20
         //        /  \
         //       15   7
-        int[] inorder = {3,9,20,15,7};
-        int[] postorder = {9,3,15,20,7};
+        int[] preorder = {3,9,20,15,7};
+        int[] inorder = {9,3,15,20,7};
 
-        TreeNode root = solution.buildTree(inorder, postorder);
+        TreeNode root = solution.buildTree(preorder, inorder);
 
         // 打印重建的二叉树（前序遍历）
         printPreorder(root);
@@ -51,9 +51,12 @@ class Solution105 {
         int value = preorder[preStart];
         TreeNode node = new TreeNode(value);
         int index = map.get(value);
+        int leftTreeSize = index-inStart;
         int rightTreeSize = inEnd - index;
-        node.left = DiGUi105(preorder, inorder, preStart + 1, preEnd - rightTreeSize, inStart, inStart + index - 1, map);
-        node.right = DiGUi105(preorder, inorder, preEnd - rightTreeSize + 1, preEnd, index + 1, inEnd, map);
+        node.left = DiGUi105(preorder, inorder, preStart + 1, preStart+leftTreeSize
+                , inStart, index - 1, map);
+        node.right = DiGUi105(preorder, inorder, preStart+leftTreeSize + 1,
+                preEnd, index + 1, inEnd, map);
         return node;
     }
 }
