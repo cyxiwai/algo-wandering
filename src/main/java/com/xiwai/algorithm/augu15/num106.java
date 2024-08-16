@@ -56,14 +56,13 @@ class Solution106 {
         int value = postorder[postEnd];
         TreeNode root = new TreeNode(value);
         int index = map.get(value);
-//        int rightTreeSize = inEnd - index;
+
 //        假设一个数组总长为10，则end为9，start为0，若中间第四个为index（3），
-//        总长 = end - start + 1，右长（不包含本）=end - index，左长 = 总长 - 右长 - 1
-//        首先，左闭右闭区间内的元素个数 = 右区间点 - 左区间点 + 1
-//        则index左（不包含自己）共有（index - 1 - start + 1）=3 - 1 - 0 + 1 个元素
+//        首先，左闭右闭区间内的元素个数 = 右区间点索引 - 左区间点索引 + 1
+//        index左（不包含自己）共有（index - 1 - start + 1）=3 - 1 - 0 + 1 个元素
 //                区间点为start = 0 和index - 1 = 2
-//        index右共有end - index9 - 3 个元素
-//        若左闭右闭切不计index本身，则左区间为0，1，2，即start，index - 1
+//        左闭右闭不计index本身，则左区间为0，1，2，即start，index - 1
+//        index右共有end - index=9 - 3 个元素
 //        右区间为456789，即index + 1，end
 //        同样的index，前序左区间要去掉根节点，而左右区间大小与中序一致，
 //        即大小要满足index - instart和inend - index
@@ -78,7 +77,7 @@ class Solution106 {
 //        同理可得右子树推导关系，右子树右区间点为preend，右区间大小为inend - index
 //        则右子树左区间点有关系：inend - index = preend - 左 + 1
 //        则左区间点 = preend - 右子树 + 1
-//        又有preend - prestart除index外元素个数总和，因此右子树 = 总和 - 左子树
+//        又有preend - prestart=除index外元素个数总和，因此右子树 = 总和 - 左子树
 //        即preend -（preend - prestart - （index - instart））+1 =
 //                prestart + index - instart + 1
 //        又即prestart + 左子树大小 + 1
