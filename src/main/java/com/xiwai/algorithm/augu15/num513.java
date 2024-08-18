@@ -12,7 +12,6 @@ public class num513 {
 class Solution513_2 {
     public int firstEle = 0;
     public int depthRecord = -1;
-
     public int findBottomLeftValue(TreeNode root) {
 
 
