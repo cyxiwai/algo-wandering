@@ -13,7 +13,7 @@ public class num236 {
         root.left.right = new TreeNode(4);
 
         // 创建Solution实例
-        Solution solution = new Solution();
+        Solution236 solution = new Solution236();
 
         // 定义p和q节点
         TreeNode p = root.left;         // 节点3
