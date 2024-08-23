@@ -3,49 +3,49 @@ package com.xiwai.algorithm.augu23;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+//
+//public class num47 {
+//    public static void main(String[] args) {
+//
+//
+//        Solution solution = new Solution();
+//
+//        // Test case 1: Example with duplicates
+//        int[] nums1 = {1, 1, 2};
+//        List<List<Integer>> permutations1 = solution.permuteUnique(nums1);
+//        System.out.println("Test case 1: [1, 1, 2]");
+//        for (List<Integer> perm : permutations1) {
+//            System.out.println(perm);
+//        }
+//
+//        // Test case 2: No duplicates
+//        int[] nums2 = {1, 2, 3};
+//        List<List<Integer>> permutations2 = solution.permuteUnique(nums2);
+//        System.out.println("Test case 2: [1, 2, 3]");
+//        for (List<Integer> perm : permutations2) {
+//            System.out.println(perm);
+//        }
+//
+//        // Test case 3: All elements are the same
+//        int[] nums3 = {2, 2, 2};
+//        List<List<Integer>> permutations3 = solution.permuteUnique(nums3);
+//        System.out.println("Test case 3: [2, 2, 2]");
+//        for (List<Integer> perm : permutations3) {
+//            System.out.println(perm);
+//        }
+//
+//        // Test case 4: Larger input with duplicates
+//        int[] nums4 = {1, 2, 2, 3};
+////        List<List<Integer>> permutations4 = solution.permuteUnique(nums4);
+//        System.out.println("Test case 4: [1, 2, 2, 3]");
+////        for (List<Integer> perm : permutations4) {
+////            System.out.println(perm);
+//        }
+//    }
+//}
 
-public class num47 {
-    public static void main(String[] args) {
 
-
-        Solution solution = new Solution();
-
-        // Test case 1: Example with duplicates
-        int[] nums1 = {1, 1, 2};
-        List<List<Integer>> permutations1 = solution.permuteUnique(nums1);
-        System.out.println("Test case 1: [1, 1, 2]");
-        for (List<Integer> perm : permutations1) {
-            System.out.println(perm);
-        }
-
-        // Test case 2: No duplicates
-        int[] nums2 = {1, 2, 3};
-        List<List<Integer>> permutations2 = solution.permuteUnique(nums2);
-        System.out.println("Test case 2: [1, 2, 3]");
-        for (List<Integer> perm : permutations2) {
-            System.out.println(perm);
-        }
-
-        // Test case 3: All elements are the same
-        int[] nums3 = {2, 2, 2};
-        List<List<Integer>> permutations3 = solution.permuteUnique(nums3);
-        System.out.println("Test case 3: [2, 2, 2]");
-        for (List<Integer> perm : permutations3) {
-            System.out.println(perm);
-        }
-
-        // Test case 4: Larger input with duplicates
-        int[] nums4 = {1, 2, 2, 3};
-        List<List<Integer>> permutations4 = solution.permuteUnique(nums4);
-        System.out.println("Test case 4: [1, 2, 2, 3]");
-        for (List<Integer> perm : permutations4) {
-            System.out.println(perm);
-        }
-    }
-}
-
-
-class Solution {
+class Solution47 {
     List<List<Integer>> ans = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
 
