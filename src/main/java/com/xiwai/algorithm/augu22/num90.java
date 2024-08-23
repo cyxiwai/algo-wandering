@@ -7,7 +7,7 @@ import java.util.List;
 public class num90 {
 }
 
-class Solution {
+class Solution90 {
     List<Integer> path = new ArrayList<>();
     List<List<Integer>> ans = new ArrayList<>();
 
