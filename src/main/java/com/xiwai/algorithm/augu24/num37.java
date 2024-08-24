@@ -3,7 +3,7 @@ package com.xiwai.algorithm.augu24;
 public class num37 {
 }
 
-class Solution {
+class Solution37 {
     public void solveSudoku(char[][] board) {
         backTracing(board);
         return;
