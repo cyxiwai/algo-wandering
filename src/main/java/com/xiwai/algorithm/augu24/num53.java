@@ -4,7 +4,7 @@ public class num53 {
 
 }
 
-class Solution {
+class Solution53 {
     public int maxSubArray(int[] nums) {
         int count = 0;
         int ans = Integer.MIN_VALUE;
