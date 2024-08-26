@@ -3,7 +3,7 @@ package com.xiwai.algorithm.augu25;
 public class num121 {
 }
 
-class Solution {
+class Solution121 {
     public int maxProfit(int[] prices) {
         int ans = 0;
         int min = prices[0];
