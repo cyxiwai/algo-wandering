@@ -4,7 +4,7 @@ public class num860 {
 
 }
 
-class Solution {
+class Solution860 {
     public boolean lemonadeChange(int[] bills) {
         int five = 0;
         int ten = 0;
