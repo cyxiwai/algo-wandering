@@ -1,4 +1,4 @@
-package com.xiwai.augu28;
+package com.xiwai.algorithm.augu28;
 
 public class num42 {
 }
