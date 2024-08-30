@@ -1,9 +1,12 @@
 package com.xiwai.algorithm.augu30;
 
 public class num62 {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+    }
 }
 
-class Solution {
+class Solution62 {
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
