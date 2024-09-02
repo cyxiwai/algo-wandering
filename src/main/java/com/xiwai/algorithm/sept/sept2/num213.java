@@ -8,18 +8,18 @@ public class num213 {
     }
 }
 
-class Solution {
+class Solution213 {
     public int rob(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
         }
 
-        int head_exc = robf(nums, 1, nums.length);
-        int tail_exc = robf(nums, 0, nums.length - 1);
+        int head_exc = robF(nums, 1, nums.length);
+        int tail_exc = robF(nums, 0, nums.length - 1);
         return Math.max(head_exc, tail_exc);
     }
 
-    public int robf(int[] nums, int m, int n) {
+    public int robF(int[] nums, int m, int n) {
         int pre = 0, cur = 0, next = 0;
         for (int i = m; i < n; i++) {
             cur = next;
