@@ -6,7 +6,7 @@ import java.util.List;
 public class num139 {
 }
 
-class Solution {
+class Solution139 {
     public boolean wordBreak(String s, List<String> wordDict) {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
