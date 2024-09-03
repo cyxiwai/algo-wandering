@@ -2,7 +2,7 @@ package com.xiwai.algorithm.sept.sept2;
 
 public class num213 {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution213 s = new Solution213();
         int[] test = {1, 2, 3, 1};
         System.out.println(s.rob(test));
     }
