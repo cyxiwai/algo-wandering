@@ -3,7 +3,7 @@ package com.xiwai.algorithm.sept.sept3;
 public class num718 {
 }
 
-class Solution {
+class Solution718_need {
     public int findLength(int[] nums1, int[] nums2) {
         int[][] dp = new int[nums1.length + 1][nums2.length + 1];
         int ans = 0;
