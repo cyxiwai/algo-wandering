@@ -1,28 +1,33 @@
 package com.xiwai.algorithm.sept.sept6;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
 
-public class kama99 {
-    public static int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};//下右上左逆时针遍历
+public class kama100 {
+    public static int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    public static int area = 0;
 
-    public static void bfs(int[][] grid, boolean[][] visited, int x, int y) {
-        Queue<pair> queue = new LinkedList<pair>();//定义坐标队列，没有现成的pair类，在下面自定义了
+    public static void bfs(boolean[][] visited, int[][] grid, int x, int y) {
+        Queue<pair> queue = new LinkedList<pair>();
         queue.add(new pair(x, y));
-        visited[x][y] = true;//遇到入队直接标记为优先，
-        // 否则出队时才标记的话会导致重复访问，比如下方节点会在右下顺序的时候被第二次访问入队
+        visited[x][y] = true;
+        area++;
         while (!queue.isEmpty()) {
+
             int curX = queue.peek().first;
-            int curY = queue.poll().second;//当前横纵坐标
+            int curY = queue.poll().second;
             for (int i = 0; i < 4; i++) {
-                //顺时针遍历新节点next，下面记录坐标
                 int nextX = curX + dir[i][0];
                 int nextY = curY + dir[i][1];
-                if (nextX < 0 || nextX >= grid.length || nextY < 0 || nextY >= grid[0].length) {
+                if (nextY < 0 || nextX < 0 || nextX >= grid.length || nextY >= grid[0].length) {
                     continue;
-                }//去除越界部分
+                }
                 if (!visited[nextX][nextY] && grid[nextX][nextY] == 1) {
+                    area++;
+                    visited[nextX][nextY] = true;
                     queue.add(new pair(nextX, nextY));
-                    visited[nextX][nextY] = true;//逻辑同上
                 }
             }
         }
@@ -34,17 +39,18 @@ public class kama99 {
         int n = sc.nextInt();
         int[][] grid = new int[m][n];
         boolean[][] visited = new boolean[m][n];
-        int ans = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 grid[i][j] = sc.nextInt();
             }
         }
+        int ans = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (!visited[i][j] && grid[i][j] == 1) {
-                    ans++;
-                    bfs(grid, visited, i, j);
+                    area = 0;
+                    bfs(visited, grid, i, j);
+                    ans = Math.max(ans, area);
                 }
             }
         }
