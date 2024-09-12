@@ -4,7 +4,7 @@ import java.util.List;
 
 public class num2181 {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution2181 s = new Solution2181();
         ListNode head1 = new ListNode(0, new ListNode(3, new ListNode(1,
                 new ListNode(0, new ListNode(4, new ListNode(5,
                         new ListNode(2, new ListNode(0))))))));
@@ -39,7 +39,7 @@ public class num2181 {
 }
 
 
-class Solution {
+class Solution2181{
     protected ListNode ans = new ListNode();
 
     //快慢指针，双指针法快指针找下一个0，如果到null就直接停下，每次节点遍历都累加一个sum，当快指针停下，sum新建为新的节点，
