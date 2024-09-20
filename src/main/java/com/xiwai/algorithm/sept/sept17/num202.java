@@ -5,11 +5,11 @@ import java.util.HashSet;
 public class num202 {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        solution.isHappy(19);
+//        solution.isHappy(19);
     }
 }
 
-class Solution {
+class Solution202 {
     public boolean isHappy(int n) {
         int temp = n;
         HashSet<Integer> set = new HashSet<>();
