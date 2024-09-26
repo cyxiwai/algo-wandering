@@ -2,7 +2,7 @@ package com.xiwai.algorithm.sept.sept18;
 
 public class kmpPrac {
     public static void main(String[] args) {
-        String tests1 = "abab";
+        String tests1 = "ATAATA";
         String tests2 = "AGCATAATAATTAA";
         String test = tests1 + "#" + tests2;
         int[] pi = new int[tests1.length() + tests2.length() + 1];
