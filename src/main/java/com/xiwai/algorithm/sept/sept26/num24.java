@@ -3,7 +3,7 @@ package com.xiwai.algorithm.sept.sept26;
 public class num24 {
 }
 
-class Solution {
+class Solution24 {
     public ListNode swapPairs(ListNode head) {
         ListNode dummy = new ListNode();
         dummy.next = head;
